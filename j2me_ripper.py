@@ -20,9 +20,9 @@ for i in s:
         size=size+a.decode("utf-8") #convert bytes to string
     a=b'' #empty byte variable
     jarsize=''
-    while a!=b'\x0d':
+    while (a!=b'\x0d') and (a!=b'\x0a'):
         a=file1.read(1)
-        jarsize=jarsize+a.decode("ascii")
+        jarsize=jarsize+a.decode("utf-8")
     print(size+jarsize)
     print('File handle is at index:' +hex(file1.tell()))
     jar_header_index=s.find(jar_header,file1.tell())
